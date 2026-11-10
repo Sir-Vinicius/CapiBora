@@ -1,10 +1,8 @@
-\# CapiBora
+# CapiBora
 
-\## Sobre o projeto
+CapiBora é um jogo desenvolvido na Unity, com foco em stealth, infiltração e resgate de animais.
 
-CapiBora é um jogo desenvolvido em Unity, com foco em stealth, infiltração e resgate de animais.
-
-\## Tecnologias
+## Tecnologias
 
 * Unity 3D
 * C#
