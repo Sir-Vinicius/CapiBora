@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: preto
+  m_Name: White_CS
   m_Shader: {fileID: -6465566751694194690, guid: ec23ef191688cf548aab938dfd2ed96c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -104,9 +104,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Max: 1
+    - _Max: 0.82
     - _Metallic: 0
-    - _Min: 0.3
+    - _Min: 0.52
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -120,11 +120,11 @@ Material:
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
-    - _shaders: 0.49
+    - _shaders: 0.76
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 0.9727257, g: 1, b: 0.5235849, a: 1}
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.9727257, g: 1, b: 0.52358484, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

@@ -3,7 +3,22 @@ guid: 78e7e3f39e0d83241af813ba737d7a26
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 0bee8c2309f3a054db299265eb010873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 933ace0232d137f4f9d7ad939ad57ff4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red_toon shader
+    second: {fileID: 2100000, guid: b0f6613aed1ca474098aac16ac7ee54d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
