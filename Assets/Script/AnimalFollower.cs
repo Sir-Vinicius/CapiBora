@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class AnimalFollower : MonoBehaviour
 {
+    [Header("Configuração de Fase")]
+    [SerializeField] private bool isMainAnimal = false; //Marcar True no Inspector se for o animal obrigatório da fase
+    public bool IsMainAnimal => isMainAnimal;
+
     private Transform targetToFollow;
     private MovePlayer playerMovement;
     private int historyIndex;
     [SerializeField] private float followSpeed = 5f;
 
     private bool isFollowing = false;
+
 
     //Chama esse método no FollowerManager e configura a posição do animal na fila, o líder que ele deve seguir e a referência do player para acessar o histórico de posições
     public void StartFollowing(Transform leader, MovePlayer playerRef, int indexInQueue)

@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class MovePlayer : MonoBehaviour
 {
+    [Header("Spawn")]
+    [SerializeField] private Transform spawnPoint;
+
     public Rigidbody meuRB;
     private Vector2 direcaoInput;
 
@@ -22,7 +25,14 @@ public class MovePlayer : MonoBehaviour
     void Start()
     {
         meuRB = GetComponent<Rigidbody>();
-        
+
+        if (spawnPoint != null)
+        {
+            meuRB.position = spawnPoint.position;
+            transform.position = spawnPoint.position;
+        }
+        else Debug.LogWarning("SpawnPoint não atribuído no Inspector do MovePlayer");
+
         //Salva a posição inicial
         positionHistory.Add(meuRB.position);
 

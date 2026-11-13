@@ -7,6 +7,7 @@ public class FollowerManager : MonoBehaviour
 {
     [SerializeField] private MovePlayer playerMovement;
     [SerializeField] private List<Transform> activeQueue = new List<Transform>(); //Lista para armazenar a ordem exata dos animais na fila
+    public IReadOnlyList<Transform> ActiveQueue => activeQueue; //Apenas leitura para outros scripts
 
     [Header("Espaçamento da Fila")]
     [SerializeField] private int historySpacing = 15; //Quantidade de pontos de histórico de distância
