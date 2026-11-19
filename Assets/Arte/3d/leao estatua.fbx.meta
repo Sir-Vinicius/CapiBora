@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: 5fe643ee10a41cd4e8409e8b35275e2e
+guid: 70a41c3092da5a94eb2e47bdbe08f11d
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SeatedLion_Dark_2D
+    second: {fileID: 7933299137048178034, guid: a9f670f4eae962b4683c35ae3d1db878, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SeatedLion_Deep_2D
+    second: {fileID: 2100000, guid: b4f2ec6d64058194c9fd9c37793010b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "cabe\xE7a"
+    second: {fileID: 2100000, guid: 933ace0232d137f4f9d7ad939ad57ff4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: corpo
+    second: {fileID: 2100000, guid: 933ace0232d137f4f9d7ad939ad57ff4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: juba
+    second: {fileID: 2100000, guid: b4f2ec6d64058194c9fd9c37793010b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: orelha
+    second: {fileID: 2100000, guid: 0bee8c2309f3a054db299265eb010873, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

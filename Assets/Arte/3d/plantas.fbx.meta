@@ -3,7 +3,57 @@ guid: eea4f370457e39b43934c5f84ddd7e4f
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arbusto
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arbusto com flor
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flor azul
+    second: {fileID: 2100000, guid: 066ba1efc3892224fb3c5c297d7ef4e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flor rosa
+    second: {fileID: 2100000, guid: e9f9ad4d29ef59b4083f0f84ab944d47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flor vermelha
+    second: {fileID: 2100000, guid: b0f6613aed1ca474098aac16ac7ee54d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: planta 1
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: planta 2
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: planta 3
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: planta 4
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vitoria regia
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
