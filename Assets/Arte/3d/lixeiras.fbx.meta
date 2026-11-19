@@ -3,7 +3,42 @@ guid: ab00781a3be974043bddb5767cbbce79
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: borda branca
+    second: {fileID: 2100000, guid: 3f72e79de5a51fa4ba63a7301f899eb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ferro.001
+    second: {fileID: 2100000, guid: d41b1cfd0c08868478f6d4ab7c10de90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: madeira.003
+    second: {fileID: 2100000, guid: 933ace0232d137f4f9d7ad939ad57ff4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: placa amarela
+    second: {fileID: 2100000, guid: 91ebebf806aa15742b153488cc977745, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: placa azul
+    second: {fileID: 2100000, guid: 066ba1efc3892224fb3c5c297d7ef4e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: placa verde
+    second: {fileID: 2100000, guid: 9a0dbafafb254ab40ba9bddb2d6a0086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: placa vermelha
+    second: {fileID: 2100000, guid: b0f6613aed1ca474098aac16ac7ee54d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
