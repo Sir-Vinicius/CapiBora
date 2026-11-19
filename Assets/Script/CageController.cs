@@ -1,4 +1,5 @@
 
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,8 @@ public class CageController : MonoBehaviour
 
     [Header("Referências")]
     [SerializeField] private FollowerManager followerManager;
+
+    [SerializeField] private MMF_Player unlockSound;
 
     private PlayerInput playerInput;
     private InputAction interactAction;
@@ -55,6 +58,7 @@ public class CageController : MonoBehaviour
         interactionTimer = 0f;
 
         Debug.Log($"{name}: Jaula aberta!");
+        unlockSound.PlayFeedbacks();
     }
 
     public void LockCage()

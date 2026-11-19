@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     public LayerMask visionMask;
     public Transform target;
     private Transform currentTarget;
-
+    public UIManager uiManager;
 
     void Start()
     {
@@ -165,5 +165,13 @@ public class Enemy : MonoBehaviour
             origin + rightDirection
         );
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            uiManager.RestartLevel();
 
+        }
+    }
+    
 }
