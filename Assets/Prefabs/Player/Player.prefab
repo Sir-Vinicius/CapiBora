@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 4872839061893303171}
   - component: {fileID: 2381334154249923158}
   - component: {fileID: 6798806916989185733}
+  - component: {fileID: 1011702120118302932}
   - component: {fileID: 5746891741780319459}
   - component: {fileID: 3499913828298071044}
   m_Layer: 0
@@ -200,10 +201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7af252217dcde43aea693e67893a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovePlayer
+  spawnPoint: {fileID: 0}
   meuRB: {fileID: 6798806916989185733}
   vel: 5
-  positionHistory: []
-  minDistanceToRecord: 0.1
 --- !u!114 &2381334154249923158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ea47867e9f23d438290b047461010b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowerManager
-  playerMovement: {fileID: 4872839061893303171}
+  positionTracker: {fileID: 0}
   activeQueue: []
   historySpacing: 8
 --- !u!54 &6798806916989185733
@@ -246,6 +246,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1011702120118302932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833209826071993100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59087a16a301d048b0c993ced6b1d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionTracker
+  minDistanceToRecord: 0.1
+  maxHistorySize: 500
 --- !u!65 &5746891741780319459
 BoxCollider:
   m_ObjectHideFlags: 0

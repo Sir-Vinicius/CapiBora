@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Xml;
 using Unity.VisualScripting;
@@ -5,16 +6,45 @@ using UnityEngine;
 
 public class FollowerManager : MonoBehaviour
 {
-    [SerializeField] private MovePlayer playerMovement;
-    [SerializeField] private List<Transform> activeQueue = new List<Transform>(); //Lista para armazenar a ordem exata dos animais na fila
-    public IReadOnlyList<Transform> ActiveQueue => activeQueue; //Apenas leitura para outros scripts
+    [Header("Referências do Player")]
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private PositionTracker positionTracker;
+    [SerializeField] private AbilityInput abilityInput;
 
-    [Header("Espaçamento da Fila")]
+
+    [Header("Configurações da Fila")]
+    [SerializeField] private List<Transform> activeQueue = new List<Transform>(); //Lista para armazenar a ordem exata dos animais na fila
     [SerializeField] private int historySpacing = 15; //Quantidade de pontos de histórico de distância
+
+    public IReadOnlyList<Transform> ActiveQueue => activeQueue; //Apenas leitura para outros scripts
+    private int selectedIndex = -1;
+
+    //Events
+    public static event Action<AnimalFollower> OnAnimalAddedToQueue;
+    //Remover animal da Queue (Tatu)
 
     void Start()
     {
-        if (playerMovement == null) Debug.LogWarning("Não achou MovePlayer");
+        if (positionTracker == null) Debug.LogWarning("Não achou PositionTracker");
+        if (abilityInput == null) Debug.LogWarning("Não achou AbilityInput");
+    }
+
+    void OnEnable()
+    {
+        if (abilityInput != null)
+        {
+            abilityInput.OnAbilityInputTriggered += TryUseSelectedAnimalAbility;
+            abilityInput.OnSelectSlotTriggered += HandleAnimalSelection;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (abilityInput != null)
+        {
+            abilityInput.OnAbilityInputTriggered -= TryUseSelectedAnimalAbility;
+            abilityInput.OnSelectSlotTriggered -= HandleAnimalSelection;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,20 +65,87 @@ public class FollowerManager : MonoBehaviour
     //Adiciona e organiza o animal na fila indiana
     public void AddAnimalToQueue(Transform animalTransform)
     {
-        activeQueue.Add(animalTransform); //Coloca no final da lista
+        if (animalTransform == null || positionTracker == null) return;
+        
+        //Se for Tatu reseta a habilidade e reabilita o FollowerManager
+        TatuBolaAbility tatu = animalTransform.GetComponent<TatuBolaAbility>();
+        if (tatu != null) tatu.OnRejoinedQueue();
 
         AnimalFollower follower = animalTransform.GetComponent<AnimalFollower>();
-
         if (follower == null) return;
 
-        Transform leader;
+        //Coloca no final da lista
+        activeQueue.Add(animalTransform); 
 
-        if (activeQueue.Count == 1) leader = playerMovement.transform; //Se for o primeiro, o lider dele é a capivara (segue ela)
+        //Para garantir que está habilitado
+        follower.enabled = true;
+
+        Transform leader;
+        if (activeQueue.Count == 1) leader = positionTracker.transform; //Se for o primeiro, o lider dele é a capivara (segue ela)
         else leader = activeQueue[activeQueue.Count - 2]; //Se já houver outros, ele segue o animal anterior na fila
 
         int queueIndex = activeQueue.Count * historySpacing; //Aplica o Spacing
 
         //Ativa o comportamento de seguimento no script do animal
-        follower.StartFollowing(leader, playerMovement, queueIndex);
+        follower.StartFollowing(leader, positionTracker, queueIndex);
+
+        //Avisa o UI Manager para colocar o Ícone na tela
+        OnAnimalAddedToQueue?.Invoke(follower);
+    }
+
+    void HandleAnimalSelection (int slotIndex)
+    {
+        if (slotIndex < activeQueue.Count)
+        {
+            selectedIndex = slotIndex;
+            Debug.Log($"Animal na posição {selectedIndex + 1} selecionado!");
+        }
+        else
+        {
+            Debug.Log("Não há animal nessa posição da fila");
+        }
+    }
+
+    void TryUseSelectedAnimalAbility()
+    {
+        if (activeQueue.Count == 0) return;
+
+        int targetIndex = (selectedIndex >= 0 && selectedIndex < activeQueue.Count) ? selectedIndex : 0;
+        Transform chosenAnimalTransform = activeQueue[targetIndex];
+
+        TatuBolaAbility tatuBolaAbility = chosenAnimalTransform.GetComponent<TatuBolaAbility>();
+        if (tatuBolaAbility != null)
+        {
+            activeQueue.RemoveAt(targetIndex); //Remove o animal da fila
+
+            Vector3 playerFacingDir = positionTracker.LastMoveDirection;
+            tatuBolaAbility.LaunchAbility(playerFacingDir); //Lança a habilidade do animal selecionado
+
+            selectedIndex = -1; //Reseta o índice selecionado
+            ReorganizeQueue(); //Reorganiza a fila após a remoção do animal
+        }
+    }
+
+    void ReorganizeQueue()
+    {
+        for (int i = 0; i < activeQueue.Count; i++)
+        {
+            AnimalFollower animalFollower = activeQueue[i].GetComponent<AnimalFollower>();
+            if (animalFollower != null)
+            {
+                Transform newLeader;
+                if  (i == 0)
+                {
+                    newLeader = playerTransform; //O primeiro animal segue o player
+                }
+                else
+                {
+                    newLeader = activeQueue[i -1]; //Os demais seguem o animal anterior na fila
+                }
+
+                int newQueueIndex = (i + 1) * historySpacing; //Atualiza o índice de espaçamento
+                animalFollower.StartFollowing(newLeader, positionTracker, newQueueIndex); 
+            }
+        }
     }
 }

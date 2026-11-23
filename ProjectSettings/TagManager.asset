@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Animal
   - Exit
+  - Obstacle
   layers:
   - Default
   - TransparentFX
