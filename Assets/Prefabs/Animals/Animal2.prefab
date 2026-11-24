@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 5542722881295447440}
   - component: {fileID: 76560200872069220}
   - component: {fileID: 5276992894229282390}
+  - component: {fileID: 2072825573555886333}
   m_Layer: 0
   m_Name: Animal2
   m_TagString: Animal
@@ -218,4 +219,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b703c3ae7627b064987a924a92b2f18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimalFollower
+  isMainAnimal: 0
+  animalIcon: {fileID: 7482667652216324306, guid: 56c47fe13d5c0c7449ec82501c3cfc52, type: 3}
   followSpeed: 5
+--- !u!54 &2072825573555886333
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071373734343055852}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

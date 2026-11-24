@@ -21,7 +21,8 @@ public class FollowerManager : MonoBehaviour
 
     //Events
     public static event Action<AnimalFollower> OnAnimalAddedToQueue;
-    //Remover animal da Queue (Tatu)
+    public static event Action<int> OnAnimalRemovedFromQueue;
+    public static event Action<int> OnSelectedSlotChanged;
 
     void Start()
     {
@@ -98,6 +99,7 @@ public class FollowerManager : MonoBehaviour
         if (slotIndex < activeQueue.Count)
         {
             selectedIndex = slotIndex;
+            OnSelectedSlotChanged?.Invoke(selectedIndex); //Avisa UIManager
             Debug.Log($"Animal na posição {selectedIndex + 1} selecionado!");
         }
         else
@@ -117,11 +119,13 @@ public class FollowerManager : MonoBehaviour
         if (tatuBolaAbility != null)
         {
             activeQueue.RemoveAt(targetIndex); //Remove o animal da fila
+            OnAnimalRemovedFromQueue?.Invoke(targetIndex); //Avisa o UIManager para remover o ícone da tela
 
             Vector3 playerFacingDir = positionTracker.LastMoveDirection;
             tatuBolaAbility.LaunchAbility(playerFacingDir); //Lança a habilidade do animal selecionado
 
             selectedIndex = -1; //Reseta o índice selecionado
+            OnSelectedSlotChanged?.Invoke(selectedIndex); // Avisa a UI que não há mais seleção ativa
             ReorganizeQueue(); //Reorganiza a fila após a remoção do animal
         }
     }
