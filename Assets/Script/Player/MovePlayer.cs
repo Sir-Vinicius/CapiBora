@@ -51,7 +51,7 @@ public class MovePlayer : MonoBehaviour
     }
     public void ResetPositionHistory()
     {
-        positionHistory.Clear();
-        positionHistory.Add(transform.position);
+        //positionHistory.Clear();
+        //positionHistory.Add(transform.position);
     }
 }
