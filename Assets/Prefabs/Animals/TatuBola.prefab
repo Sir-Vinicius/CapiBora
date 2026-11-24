@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 1985424213236374333}
   - component: {fileID: 2064130923339144408}
   - component: {fileID: 97448792988235276}
+  - component: {fileID: 3674108269589264700}
   - component: {fileID: 569820014711178737}
+  - component: {fileID: 4920912357743709229}
   m_Layer: 0
-  m_Name: Animal1
+  m_Name: TatuBola
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,6 +117,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0.21133333, z: 0}
+--- !u!114 &3674108269589264700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909118463683635885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484f1cbf19034034ca532a3d79917436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TatuBolaAbility
+  speed: 8
+  maxDistance: 8
+  maxDuration: 2
 --- !u!114 &569820014711178737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +144,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b703c3ae7627b064987a924a92b2f18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimalFollower
+  isMainAnimal: 1
+  animalIcon: {fileID: 7482667652216324306, guid: 56c47fe13d5c0c7449ec82501c3cfc52, type: 3}
   followSpeed: 5
+--- !u!54 &4920912357743709229
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909118463683635885}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1938539046710652283
 GameObject:
   m_ObjectHideFlags: 0

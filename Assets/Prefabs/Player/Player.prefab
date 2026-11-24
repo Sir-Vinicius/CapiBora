@@ -104,6 +104,8 @@ GameObject:
   - component: {fileID: 4872839061893303171}
   - component: {fileID: 2381334154249923158}
   - component: {fileID: 6798806916989185733}
+  - component: {fileID: 1011702120118302932}
+  - component: {fileID: 7283408583105386919}
   - component: {fileID: 5746891741780319459}
   - component: {fileID: 3499913828298071044}
   m_Layer: 0
@@ -200,10 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7af252217dcde43aea693e67893a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovePlayer
+  spawnPoint: {fileID: 0}
   meuRB: {fileID: 6798806916989185733}
   vel: 5
-  positionHistory: []
-  minDistanceToRecord: 0.1
 --- !u!114 &2381334154249923158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ea47867e9f23d438290b047461010b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowerManager
-  playerMovement: {fileID: 4872839061893303171}
+  playerTransform: {fileID: 1841660315021815170}
+  positionTracker: {fileID: 1011702120118302932}
+  abilityInput: {fileID: 7283408583105386919}
   activeQueue: []
   historySpacing: 8
 --- !u!54 &6798806916989185733
@@ -246,6 +249,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1011702120118302932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833209826071993100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59087a16a301d048b0c993ced6b1d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionTracker
+  minDistanceToRecord: 0.1
+  maxHistorySize: 500
+--- !u!114 &7283408583105386919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833209826071993100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142be6d8f4734924cac4a3ad6cab86aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityInput
 --- !u!65 &5746891741780319459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -380,6 +409,70 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7283408583105386919}
+        m_TargetAssemblyTypeName: AbilityInput, Assembly-CSharp
+        m_MethodName: OnAbility
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 692925d4-0d99-45fa-aa0e-03b79d73cbbc
+    m_ActionName: 'Player/Ability[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7283408583105386919}
+        m_TargetAssemblyTypeName: AbilityInput, Assembly-CSharp
+        m_MethodName: OnSelect1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8ea0d624-8485-451e-98c9-e438fb77a1f5
+    m_ActionName: 'Player/Select1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7283408583105386919}
+        m_TargetAssemblyTypeName: AbilityInput, Assembly-CSharp
+        m_MethodName: OnSelect2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 50a2c6bc-f1f6-45e2-b0e7-b2178ac37a96
+    m_ActionName: 'Player/Select2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7283408583105386919}
+        m_TargetAssemblyTypeName: AbilityInput, Assembly-CSharp
+        m_MethodName: OnSelect3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bc7eb89b-7e6c-4d1f-9399-e661df930cd7
+    m_ActionName: 'Player/Select3[/Keyboard/3]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
