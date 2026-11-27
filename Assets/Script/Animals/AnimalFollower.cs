@@ -19,6 +19,17 @@ public class AnimalFollower : MonoBehaviour
 
     private bool isFollowing = false;
 
+    private Animator animator;
+    private MovePlayer playerMovement;
+
+    private int inputXHash = Animator.StringToHash("inputX");
+    private int inputYHash = Animator.StringToHash("inputY");
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        playerMovement = FindAnyObjectByType<MovePlayer>();
+    }
 
     //Chama esse método no FollowerManager e configura a posição do animal na fila, o líder que ele deve seguir e a referência do player para acessar o histórico de posições
     public void StartFollowing(Transform leader, PositionTracker posTracker, int indexInQueue)
@@ -45,7 +56,12 @@ public class AnimalFollower : MonoBehaviour
                 Vector3 targetPos = positionTracker.PositionHistory[targetIndex];
 
                 //Move o animal até a posição gravada no passado
+                Vector2 direcaoInput = (targetPos - transform.position).normalized;
+                animator.SetFloat(inputXHash, playerMovement.direcaoInput.x);
+                animator.SetFloat(inputYHash, playerMovement.direcaoInput.y);
+
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, followSpeed * Time.fixedDeltaTime);
+                
             }
         }
 

@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 7283408583105386919}
   - component: {fileID: 5746891741780319459}
   - component: {fileID: 3499913828298071044}
+  - component: {fileID: 755151181535841120}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -180,12 +181,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4514879088761491194, guid: 1aa8db5aace407b41b058430ee7612b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1aa8db5aace407b41b058430ee7612b9, type: 3}
   m_Color: {r: 0.9716981, g: 0.5825801, b: 0.47209862, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 25.001955, y: 34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -204,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovePlayer
   spawnPoint: {fileID: 0}
   meuRB: {fileID: 6798806916989185733}
+  direcaoInput: {x: 0, y: 0}
   vel: 5
 --- !u!114 &2381334154249923158
 MonoBehaviour:
@@ -478,3 +480,25 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &755151181535841120
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833209826071993100}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 372fa56149f207a42b3f65b4cb085f81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

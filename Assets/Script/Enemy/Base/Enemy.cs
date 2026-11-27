@@ -15,6 +15,13 @@ public class Enemy : MonoBehaviour
 
     public int currentPoint;
 
+    [SerializeField] private Animator animator; 
+
+    private int inputXHash = Animator.StringToHash("inputX");
+    private int inputYHash = Animator.StringToHash("inputY");
+
+
+
     [Header("Vision")]
     public float visionAngle = 110;
     public int visionRange = 7;
@@ -63,13 +70,20 @@ public class Enemy : MonoBehaviour
 
         stateMachine.ChangeState(EnemyStateMachine.EnemyState.Patrol);
 
+        animator = GetComponentInChildren<Animator>();
+
         //agent.SetDestination(patrolPoints[currentPoint].position);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        Vector3 direction = agent.desiredVelocity;
+
+        Vector3 directionAnimation = new Vector3(direction.x, 0, direction.z).normalized;
+
+        animator.SetFloat(inputXHash, directionAnimation.x);
+        animator.SetFloat(inputYHash, directionAnimation.z);
     }
 
 
