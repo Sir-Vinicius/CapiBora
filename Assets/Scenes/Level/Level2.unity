@@ -452,6 +452,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   victoryScreen: {fileID: 505549455}
+  queueContainer: {fileID: 0}
+  slotPrefab: {fileID: 0}
+  normalSlotColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
+  selectedColor: {r: 0.85, g: 0.15, b: 0.15, a: 1}
+  selectedScale: 1.12
 --- !u!4 &23692755
 Transform:
   m_ObjectHideFlags: 0
@@ -8566,7 +8571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1841660315021815170, guid: b0aa014e9a563c74ba2ead4a8e6e1294, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4872839061893303171, guid: b0aa014e9a563c74ba2ead4a8e6e1294, type: 3}
       propertyPath: spawnPoint
@@ -8615,23 +8620,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 97448792988235276, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_Size.x
-      value: 5.060492
+      value: 0.9506795
       objectReference: {fileID: 0}
     - target: {fileID: 97448792988235276, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_Size.y
-      value: 8.429028
+      value: 1.4296436
       objectReference: {fileID: 0}
     - target: {fileID: 97448792988235276, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_Center.x
-      value: -0.7333564
+      value: -0.231816
       objectReference: {fileID: 0}
     - target: {fileID: 97448792988235276, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_Center.y
-      value: -0.27982473
+      value: -0.13325357
       objectReference: {fileID: 0}
     - target: {fileID: 97448792988235276, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_Center.z
-      value: 0.0000032182325
+      value: 0.0000036648246
       objectReference: {fileID: 0}
     - target: {fileID: 569820014711178737, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: isMainAnimal
@@ -8643,15 +8648,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1985424213236374333, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1985424213236374333, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1985424213236374333, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1985424213236374333, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8659,7 +8664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1985424213236374333, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.133
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 1985424213236374333, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8695,12 +8700,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1985424213236374333, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064130923339144408, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064130923339144408, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
+      propertyPath: m_Size.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2064130923339144408, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5419491148898819473, guid: 901ee9af407d7f74e85ee83f7c040553, type: 3}
+      objectReference: {fileID: 21300000, guid: ded95bf38e5214e48bc4bba37ea1fdb6, type: 3}
+    - target: {fileID: 2064130923339144408, guid: e1ebb0cf3005d1e4bb6ee99d9b518405, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
