@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     public Transform[] patrolPoints;
     public EnemyStateMachine stateMachine;
+    [SerializeField] private SecurityCameraVision[] securityCameras;
 
     public int currentPoint;
 
@@ -23,6 +24,36 @@ public class Enemy : MonoBehaviour
     public Transform target;
     private Transform currentTarget;
     public UIManager uiManager;
+
+    void OnEnable()
+    {
+        if (securityCameras == null || securityCameras.Length == 0)
+        {
+            Debug.LogWarning("Nenhuma SecurityCameraVision foi referenciada no Enemy.");
+            return;
+        }
+
+        foreach (SecurityCameraVision cameraVision in securityCameras)
+        {
+            if (cameraVision != null)
+            {
+                cameraVision.OnPlayerDetected += HandlePlayerDetected;
+            }
+        }
+    }
+
+    void OnDisable()
+    {
+        if (securityCameras == null) return;
+
+        foreach (SecurityCameraVision cameraVision in securityCameras)
+        {
+            if (cameraVision != null)
+            {
+                cameraVision.OnPlayerDetected -= HandlePlayerDetected;
+            }
+        }
+    }
 
     void Start()
     {
@@ -59,6 +90,13 @@ public class Enemy : MonoBehaviour
     public void Chase(Transform target)
     {
         agent.SetDestination(target.position);
+    }
+
+    void HandlePlayerDetected(Transform detectedPlayer)
+    {
+        currentTarget = detectedPlayer;
+
+        stateMachine.ChangeState(EnemyStateMachine.EnemyState.Chase);
     }
 
     public bool CanSeePlayer()

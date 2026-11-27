@@ -39,7 +39,7 @@ public class AbilityInput : MonoBehaviour
         }
     }
 
-    //Tecla "E"
+    //Tecla "F"
     public void OnAbility(InputAction.CallbackContext context)
     {
         if (context.started)

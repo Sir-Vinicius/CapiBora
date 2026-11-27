@@ -104,8 +104,9 @@ GameObject:
   - component: {fileID: 76560200872069220}
   - component: {fileID: 5276992894229282390}
   - component: {fileID: 2072825573555886333}
+  - component: {fileID: 5535445760441795464}
   m_Layer: 0
-  m_Name: Animal2
+  m_Name: MicoLeao
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,3 +250,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5535445760441795464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071373734343055852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a91671dc54993748ae1376285ed084f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MicoLeaoAbility
+  disableDuration: 3
+  cooldownDuration: 8
+  disableConeGameObject: 1
