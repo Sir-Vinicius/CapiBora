@@ -4004,7 +4004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8071373734343055852, guid: 38bfea09a53c9a742845523376d69d35, type: 3}
       propertyPath: m_Name
-      value: Animal2
+      value: MicoLeao
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
