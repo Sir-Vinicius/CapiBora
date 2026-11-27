@@ -114,19 +114,28 @@ public class FollowerManager : MonoBehaviour
 
         int targetIndex = (selectedIndex >= 0 && selectedIndex < activeQueue.Count) ? selectedIndex : 0;
         Transform chosenAnimalTransform = activeQueue[targetIndex];
+        Vector3 playerFacingDir = positionTracker != null ? positionTracker.LastMoveDirection : Vector3.forward;
 
+        //Habilidade do Tatu-Bola
         TatuBolaAbility tatuBolaAbility = chosenAnimalTransform.GetComponent<TatuBolaAbility>();
         if (tatuBolaAbility != null)
         {
             activeQueue.RemoveAt(targetIndex); //Remove o animal da fila
             OnAnimalRemovedFromQueue?.Invoke(targetIndex); //Avisa o UIManager para remover o ícone da tela
 
-            Vector3 playerFacingDir = positionTracker.LastMoveDirection;
             tatuBolaAbility.LaunchAbility(playerFacingDir); //Lança a habilidade do animal selecionado
 
             selectedIndex = -1; //Reseta o índice selecionado
             OnSelectedSlotChanged?.Invoke(selectedIndex); // Avisa a UI que não há mais seleção ativa
             ReorganizeQueue(); //Reorganiza a fila após a remoção do animal
+            return;
+        }
+
+        //Habilidade do Mico-Leão
+        MicoLeaoAbility micoLeaoAbility = chosenAnimalTransform.GetComponent<MicoLeaoAbility>();
+        if (micoLeaoAbility != null)
+        {
+            micoLeaoAbility.LaunchAbility(playerFacingDir);
         }
     }
 
