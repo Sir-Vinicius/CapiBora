@@ -9,15 +9,21 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
 
     public Rigidbody meuRB;
-    private Vector2 direcaoInput;
+    public Vector2 direcaoInput;
 
     [SerializeField] private float vel = 5f;
     private Vector3 forward, right;
 
+    private Animator animator;
+
+    private int inputXHash = Animator.StringToHash("inputX");
+    private int inputYHash = Animator.StringToHash("inputY");
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         meuRB = GetComponent<Rigidbody>();
 
         if (spawnPoint != null)
@@ -40,6 +46,8 @@ public class MovePlayer : MonoBehaviour
     public void Mover(InputAction.CallbackContext context)
     {
         direcaoInput = context.ReadValue<Vector2>();
+        animator.SetFloat(inputXHash, direcaoInput.x);
+        animator.SetFloat(inputYHash, direcaoInput.y);
     }
 
     // Update is called once per frame
