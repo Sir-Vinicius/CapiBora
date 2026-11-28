@@ -17,6 +17,7 @@ public class CageController : MonoBehaviour
     [SerializeField] private FollowerManager followerManager;
 
     [SerializeField] private MMF_Player unlockSound;
+    
 
     [Header("UI")]
     [SerializeField] private CageUI cageUI;
@@ -34,6 +35,7 @@ public class CageController : MonoBehaviour
     private void Awake()
     {
         IsOpen = startsOpen;
+        
     }
 
     private void Update()

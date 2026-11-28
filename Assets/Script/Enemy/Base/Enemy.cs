@@ -11,8 +11,16 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     public Transform[] patrolPoints;
     public EnemyStateMachine stateMachine;
+    [SerializeField] private SecurityCameraVision[] securityCameras;
 
     public int currentPoint;
+
+    [SerializeField] private Animator animator; 
+
+    private int inputXHash = Animator.StringToHash("inputX");
+    private int inputYHash = Animator.StringToHash("inputY");
+
+
 
     [Header("Vision")]
     public float visionAngle = 110;
@@ -24,6 +32,36 @@ public class Enemy : MonoBehaviour
     private Transform currentTarget;
     public UIManager uiManager;
 
+    void OnEnable()
+    {
+        if (securityCameras == null || securityCameras.Length == 0)
+        {
+            Debug.LogWarning("Nenhuma SecurityCameraVision foi referenciada no Enemy.");
+            return;
+        }
+
+        foreach (SecurityCameraVision cameraVision in securityCameras)
+        {
+            if (cameraVision != null)
+            {
+                cameraVision.OnPlayerDetected += HandlePlayerDetected;
+            }
+        }
+    }
+
+    void OnDisable()
+    {
+        if (securityCameras == null) return;
+
+        foreach (SecurityCameraVision cameraVision in securityCameras)
+        {
+            if (cameraVision != null)
+            {
+                cameraVision.OnPlayerDetected -= HandlePlayerDetected;
+            }
+        }
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -32,13 +70,20 @@ public class Enemy : MonoBehaviour
 
         stateMachine.ChangeState(EnemyStateMachine.EnemyState.Patrol);
 
+        animator = GetComponentInChildren<Animator>();
+
         //agent.SetDestination(patrolPoints[currentPoint].position);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        Vector3 direction = agent.desiredVelocity;
+
+        Vector3 directionAnimation = new Vector3(direction.x, 0, direction.z).normalized;
+
+        animator.SetFloat(inputXHash, directionAnimation.x);
+        animator.SetFloat(inputYHash, directionAnimation.z);
     }
 
 
@@ -59,6 +104,13 @@ public class Enemy : MonoBehaviour
     public void Chase(Transform target)
     {
         agent.SetDestination(target.position);
+    }
+
+    void HandlePlayerDetected(Transform detectedPlayer)
+    {
+        currentTarget = detectedPlayer;
+
+        stateMachine.ChangeState(EnemyStateMachine.EnemyState.Chase);
     }
 
     public bool CanSeePlayer()
