@@ -1,4 +1,3 @@
-
 using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,7 +6,7 @@ public class CageController : MonoBehaviour
 {
     [Header("Configurações da Jaula")]
     [SerializeField] private bool startsOpen = false;
-    [SerializeField] private float openInteractionTime = 5f;
+    [SerializeField] private float openInteractionTime = 1.5f;
 
     [Header("Pontos de Teleporte")]
     [SerializeField] private Transform interiorPoint;
@@ -18,6 +17,9 @@ public class CageController : MonoBehaviour
     [SerializeField] private FollowerManager followerManager;
 
     [SerializeField] private MMF_Player unlockSound;
+
+    [Header("UI")]
+    [SerializeField] private CageUI cageUI;
 
     private PlayerInput playerInput;
     private InputAction interactAction;
@@ -42,6 +44,7 @@ public class CageController : MonoBehaviour
             return;
 
         interactionTimer += Time.deltaTime;
+        cageUI.SetProgress(interactionTimer / openInteractionTime);
 
         if (interactionTimer >= openInteractionTime)
         {
@@ -56,6 +59,7 @@ public class CageController : MonoBehaviour
 
         IsOpen = true;
         interactionTimer = 0f;
+        cageUI.SetProgress(0f);
 
         Debug.Log($"{name}: Jaula aberta!");
         unlockSound.PlayFeedbacks();
@@ -82,6 +86,8 @@ public class CageController : MonoBehaviour
             Debug.LogWarning("O objeto detectado não possui PlayerInput!");
             return;
         }
+
+        cageUI.Show(transform);
 
         Debug.Log("Jogador detectado pela jaula!");
 
@@ -115,12 +121,14 @@ public class CageController : MonoBehaviour
             return;
 
         UnsubscribeFromInput();
+        cageUI.Hide();
     }
 
     private void OnInteractStarted(InputAction.CallbackContext context)
     {
         if (!IsOpen)
         {
+            cageUI.SetProgress(0f);
             interactionTimer = 0f;
             interactHeld = true;
             return;
@@ -131,6 +139,7 @@ public class CageController : MonoBehaviour
 
     private void OnInteractCanceled(InputAction.CallbackContext context)
     {
+        cageUI.SetProgress(0f);
         interactHeld = false;
         interactionTimer = 0f;
     }
