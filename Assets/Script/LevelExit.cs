@@ -55,6 +55,7 @@ public class LevelExit : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.enabled = false; //Desativa o script de movimento do player
+            Time.timeScale = 0f; //Congela o tempo
         }
 
         //Avisa o UIManager para mostrar a tela de vitória
