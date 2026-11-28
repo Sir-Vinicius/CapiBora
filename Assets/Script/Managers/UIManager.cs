@@ -138,4 +138,19 @@ public class UIManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
+    
+    public void NextLevel()
+    {
+        Time.timeScale = 1f;
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        currentSceneIndex++;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+    
+    public void Menu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
 }
