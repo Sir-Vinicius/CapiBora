@@ -14,6 +14,7 @@ public class SecurityCameraVision : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OnPlayerDetected?.Invoke(other.transform);
+            Debug.Log("Player Detectado");
         }
     }
 }

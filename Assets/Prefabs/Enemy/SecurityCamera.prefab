@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4017634935527475293}
   - component: {fileID: 7786438665905235288}
   - component: {fileID: 7012706868263214506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ConeVision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6438311244929024927}
   - component: {fileID: 8740964616272618969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SecurityCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 8390445222625930630}
   - component: {fileID: 1040693373982808359}
   - component: {fileID: 7931033302760677725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CamerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
