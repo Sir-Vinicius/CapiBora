@@ -57,9 +57,12 @@ public class AnimalFollower : MonoBehaviour
 
                 //Move o animal até a posição gravada no passado
                 Vector2 direcaoInput = (targetPos - transform.position).normalized;
-                animator.SetFloat(inputXHash, playerMovement.direcaoInput.x);
-                animator.SetFloat(inputYHash, playerMovement.direcaoInput.y);
 
+                if (animator != null)
+                {
+                    animator.SetFloat(inputXHash, playerMovement.direcaoInput.x);
+                    animator.SetFloat(inputYHash, playerMovement.direcaoInput.y);
+                }
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, followSpeed * Time.fixedDeltaTime);
                 
             }

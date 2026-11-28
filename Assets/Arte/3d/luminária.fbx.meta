@@ -38,7 +38,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: poste de luz
-    second: {fileID: 2100000, guid: d41b1cfd0c08868478f6d4ab7c10de90, type: 2}
+    second: {fileID: -2310004805139793866, guid: 5c442f9e667c3ac4089fc4321d655698, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
